@@ -22,11 +22,21 @@ export const RecipePage = () => {
       <div className="flex justify-between">
         <div className="left-content w-[63%]">
           <div className="tab-head flex justify-between mb-6 border-b border-b-gray-500">
-            <button className="p-3 text-wrap">Pates Biscuits</button>
-            <button className="p-3 text-wrap">Pates Biscuits</button>
-            <button className="p-3 text-wrap">Pates Biscuits</button>
-            <button className="p-3 text-wrap">Pates Biscuits</button>
-            <button className="p-3 text-wrap">Pates Biscuits</button>
+            <button className="p-3 text-gray-500 text-wrap">
+              Pates Biscuits
+            </button>
+            <button className="p-3 text-gray-500 text-wrap">
+              Garnitures Chaudes
+            </button>
+            <button className="p-3 text-gray-500 text-wrap">
+              Garnitures Froides
+            </button>
+            <button className="p-3 text-gray-500 text-wrap">
+              Decors Autres
+            </button>
+            <button className="p-3 text-gray-500 text-wrap">
+              Tout Afficher
+            </button>
           </div>
           <div className="recipe-table-container bg-w bg-[#ffffff5d] backdrop-blur-sm pt-3 pb-7 px-4 rounded-2xl">
             <table className="w-full text-center border-separate border-spacing-y-4">
