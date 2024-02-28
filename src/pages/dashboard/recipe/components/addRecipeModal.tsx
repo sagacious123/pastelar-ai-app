@@ -1,7 +1,7 @@
 import { Switch } from "@chakra-ui/react";
 import { IngredientsList, Notification } from "pages";
 import React, { FC, useState } from "react";
-import { BsCaretRight, BsPlusCircle } from "react-icons/bs";
+import { BsCaretRightFill, BsPlusCircle } from "react-icons/bs";
 import { MdClose } from "react-icons/md";
 
 interface AddRecipeModalProps {
@@ -78,7 +78,7 @@ export const AddRecipeModal: FC<AddRecipeModalProps> = ({ close }) => {
           </div>
           <span className="flex justify-end mt-3">
             <button onClick={() => setOpenBook(!openBook)}>
-              <BsCaretRight />
+              <BsCaretRightFill />
             </button>
           </span>
           <div className="cover-back-content relative pt-5">
