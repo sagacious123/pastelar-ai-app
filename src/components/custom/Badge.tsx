@@ -48,8 +48,6 @@ export const Badge: React.FC<BadgeProps> = ({ text, scheme, icon, className, typ
       | string
   ) => {
     let className;
-    console.log(scheme, "innnn");
-
     switch (scheme) {
       case "error":
         className = "bg-error-50 text-error-500";
@@ -86,8 +84,6 @@ export const Badge: React.FC<BadgeProps> = ({ text, scheme, icon, className, typ
     }
     return className;
   };
-
-  console.log(scheme, "outtttt");
 
   return (
     <p className={`text-capitalize fw-600 fs-12 p-1 m-0 ${getSolidBadgeBgAndTextColors(scheme)}`}>

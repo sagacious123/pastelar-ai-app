@@ -54,7 +54,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({ width, height }) => {
   };
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value.toLocaleLowerCase());
-    console.log(e.target.value.toLocaleLowerCase());
   };
 
   return (

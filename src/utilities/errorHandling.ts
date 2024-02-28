@@ -32,7 +32,7 @@ export const validationError = (errors: any) => {
 };
 
 export const resolveApiError = (error: any, message?: string): string => {
-  console.log(error, message, "errorrrrrrrr");
+  // console.log(error, message, "errorrrrrrrr");
   const check_validation_error = validationError(error?.data?.response);
   if (check_validation_error) return check_validation_error;
 

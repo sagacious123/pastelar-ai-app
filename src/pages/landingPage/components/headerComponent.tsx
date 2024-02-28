@@ -40,16 +40,12 @@ export const HeaderComponent = ({
   }, [error]);
 
   const listenScrollEvent = () => {
-    console.log(window.scrollY);
-
     if (window.scrollY > 34) {
       setBg("bg-header");
     } else {
       setBg("transparent");
     }
   };
-
-  console.log(window.scrollY, "kjbkhg");
 
   window.addEventListener("scroll", listenScrollEvent);
 

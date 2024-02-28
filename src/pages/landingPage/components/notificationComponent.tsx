@@ -15,7 +15,6 @@ interface NotificationComponentProps {
 }
 
 export const NotificationComponent: React.FC<NotificationComponentProps> = ({ notifications, refetch }) => {
-  console.log("NOTIFICATIONS: ", notifications);
   const windowWidth = useWindowWidth();
   const [isActive, setIsActive] = useState<boolean | number>(-1);
   const [updateActivity] = useUpdateActivityMutation();
@@ -25,7 +24,6 @@ export const NotificationComponent: React.FC<NotificationComponentProps> = ({ no
     const payload = {
       activityId: id,
     };
-    console.log(payload);
     updateActivity(payload)
       .unwrap()
       .then((res: any) => {
