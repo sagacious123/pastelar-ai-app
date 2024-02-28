@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "./assets/css/variables.scss";
+@import "./assets/css/app.scss";
+@import "./assets/css/dashboard/dashboard.scss";
+@import "./assets/css/dashboard/recipe.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  //   font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  // font-size: 62.5%;
+  // scroll-behavior: smooth;
+  font-size: 14px;
+}
+
+body {
+  box-sizing: border-box;
+  //   font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(
+      270deg,
+      rgba(253, 255, 244, 0.967),
+      rgba(248, 246, 247, 0.831) 56%
+    ),
+    url("./assets/images/recipe-img.jpeg") no-repeat !important;
+  background-size: cover !important;
+  // background-color: #0E0E28;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1400px !important;
+  width: 95%;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
