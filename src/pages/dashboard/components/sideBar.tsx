@@ -1,35 +1,21 @@
-import { NavLink, useLocation } from "react-router-dom";
-import { useModalProvider } from "providers";
-import { useWindowWidth } from "utilities/windowWidth";
-import { ReactComponent as HamburgerClose } from "assets/svg/hamburger-close.svg";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { NavLink } from "react-router-dom";
 import React, { useEffect, useRef, useState } from "react";
-import { IconButton } from "@chakra-ui/react";
-import { useAuth } from "store/auth";
 import {
-  MdAtm,
-  MdMan,
-  MdMan2,
-  MdMan3,
-  MdMan4,
   MdOutlineHome,
   MdOutlineMan3,
   MdOutlineMan4,
-  MdPeopleAlt,
   MdPeopleOutline,
-  MdPushPin,
 } from "react-icons/md";
-import { ReactComponent as Logo } from "assets/svg/krowdfi-logo.svg";
-import { PiFinnTheHuman, PiLeaf, PiShieldLight } from "react-icons/pi";
+import { PiLeaf, PiShieldLight } from "react-icons/pi";
 import {
   BsBarChart,
   BsBook,
-  BsBookmark,
   BsBox2,
   BsCalculator,
   BsCalendar2,
   BsFileEarmarkBinary,
   BsKey,
-  BsPeople,
 } from "react-icons/bs";
 
 interface SideBarComponentProps {

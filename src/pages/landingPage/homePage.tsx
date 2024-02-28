@@ -1,12 +1,16 @@
 /* eslint-disable no-lone-blocks */
 import { FooterComponent, HeaderComponent } from "./components";
 import { PrimaryButton } from "components/buttons";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import Campaign from "assets/json/Campaign made simple.json";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
   const [hamburger, setHamburger] = useState(false);
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/recipes");
+  }, [navigate]);
+
   return (
     <div style={{ paddingTop: "84px" }}>
       {/*========== HEADER =========== */}

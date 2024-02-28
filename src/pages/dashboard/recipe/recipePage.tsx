@@ -1,35 +1,18 @@
-import { Box, Flex, HStack, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, HStack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import {
   BsCalculator,
   BsCalendar,
-  BsCopy,
   BsDownload,
-  BsFile,
   BsFileEarmark,
   BsPencil,
   BsPlus,
-  BsPower,
   BsPrinter,
   BsTrash,
   BsUpload,
 } from "react-icons/bs";
-import {
-  MdOutlineSettings,
-  MdOutlineNotifications,
-  MdOutlineDarkMode,
-  MdFileCopy,
-  MdOutlineFileCopy,
-  MdPrint,
-} from "react-icons/md";
-import {
-  PiChartBar,
-  PiCopy,
-  PiCopyLight,
-  PiScan,
-  PiUser,
-} from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { MdOutlineFileCopy } from "react-icons/md";
+import { PiChartBar, PiScan } from "react-icons/pi";
 import { AddRecipeModal } from "./components";
 
 export const RecipePage = () => {

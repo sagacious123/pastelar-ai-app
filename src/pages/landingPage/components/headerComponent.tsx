@@ -1,25 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import UserIcon from "assets/svg/profile-circle.svg";
-import { Badge, Box, HStack, Icon, IconButton } from "@chakra-ui/react";
-import { useGetProfileInformationQuery } from "store/profile";
-import { PrimaryButton } from "components/buttons";
-import { Link, useNavigate } from "react-router-dom";
+import { HStack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { useAuth } from "store/auth";
-import { NotificationComponent } from "./notificationComponent";
 import { useModalProvider } from "providers";
-import { ReactComponent as HamburgerIcon } from "assets/svg/hamburger.svg";
-import { useWindowWidth } from "utilities/windowWidth";
-import { useGetActivityQuery } from "store/activityLogs";
 import { SearchBar } from "components/custom/searchBar";
 import {
   MdOutlineDarkMode,
   MdOutlineNotifications,
-  MdOutlinePowerOff,
   MdOutlineSettings,
-  MdPower,
-  MdSettings,
 } from "react-icons/md";
-import { BsChevronDown, BsMenuDown, BsPower, BsSortDown } from "react-icons/bs";
+import { BsChevronDown, BsPower } from "react-icons/bs";
 import { PiUser } from "react-icons/pi";
 
 interface HeaderComponentProps {
@@ -35,12 +26,8 @@ export const HeaderComponent = ({
   profileInfo = {},
   error = {},
 }: HeaderComponentProps) => {
-  const windowWidth = useWindowWidth();
-  const navigate = useNavigate();
-  const { user, token: access_token } = useAuth();
+  const { token: access_token } = useAuth();
   const { initModal } = useModalProvider();
-  const profileImage = user?.image ?? profileInfo?.data?.image ?? UserIcon;
-  const profile = profileInfo?.data || user;
   const [bg, setBg] = useState("");
 
   useEffect(() => {
