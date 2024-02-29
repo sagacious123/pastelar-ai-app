@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { NavLink } from "react-router-dom";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MdOutlineHome,
   MdOutlineMan3,
@@ -18,32 +18,8 @@ import {
   BsKey,
 } from "react-icons/bs";
 
-interface SideBarComponentProps {
-  page?: string | null;
-  active?: boolean;
-  width?: number;
-  className: string;
-  close?: React.Dispatch<React.SetStateAction<boolean>>;
-  profileInfo: any;
-}
-
-export const SideBarComponent: React.FC<SideBarComponentProps> = ({
-  page,
-  active,
-  width,
-  className,
-  close,
-  profileInfo,
-}) => {
-  useEffect(() => {
-    document.addEventListener("click", () => {
-      close!(false);
-    });
-    return () => document.removeEventListener("click", () => {});
-  }, []);
+export const SideBarComponent = () => {
   const [coords, setCoords] = useState<any>("");
-
-  const linkRef: any = useRef(null);
 
   useEffect(() => {
     const el: any = document.querySelector(".activee");
@@ -67,7 +43,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
           <NavLink
             to="/home"
             onClick={getCoords}
-            ref={linkRef}
             className={({ isActive }) =>
               isActive
                 ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-5 relative translate-x-[25px] transition-all duration-1000 activee "
@@ -80,7 +55,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             <h3 className="text-gray-400 font-bold text-sm mb-2">ECONOMAT</h3>
             <NavLink
               to="/ingredients"
-              ref={linkRef}
               className={({ isActive }) =>
                 isActive
                   ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-4 relative translate-x-[25px] transition-all duration-1000 activee "
@@ -91,7 +65,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             </NavLink>
             <NavLink
               to="/factures"
-              ref={linkRef}
               className={({ isActive }) =>
                 isActive
                   ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-4 relative translate-x-[25px] transition-all duration-1000 activee "
@@ -102,7 +75,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             </NavLink>
             <NavLink
               to="/fournisseurs"
-              ref={linkRef}
               className={({ isActive }) =>
                 isActive
                   ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-4 relative translate-x-[25px] transition-all duration-1000 activee "
@@ -118,7 +90,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             </h3>
             <NavLink
               to="/recipes"
-              ref={linkRef}
               onClick={getCoords}
               className={({ isActive }) =>
                 isActive
@@ -130,7 +101,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             </NavLink>
             <NavLink
               to="/produits"
-              ref={linkRef}
               className={({ isActive }) =>
                 isActive
                   ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-4 relative translate-x-[25px] transition-all duration-1000 activee "
@@ -144,7 +114,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             <h3 className="text-gray-400 font-bold text-sm mb-2">BOUTIQUE</h3>
             <NavLink
               to="/gammes"
-              ref={linkRef}
               className={({ isActive }) =>
                 isActive
                   ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-4 relative translate-x-[25px] transition-all duration-1000 activee "
@@ -155,7 +124,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             </NavLink>
             <NavLink
               to="/Production"
-              ref={linkRef}
               className={({ isActive }) =>
                 isActive
                   ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-4 relative translate-x-[25px] transition-all duration-1000 activee "
@@ -169,7 +137,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             <h3 className="text-gray-400 font-bold text-sm mb-2">BUREAU</h3>
             <NavLink
               to="/Equipe"
-              ref={linkRef}
               className={({ isActive }) =>
                 isActive
                   ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-4 relative translate-x-[25px] transition-all duration-1000 activee "
@@ -180,7 +147,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             </NavLink>
             <NavLink
               to="/Equipements"
-              ref={linkRef}
               className={({ isActive }) =>
                 isActive
                   ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-4 relative translate-x-[25px] transition-all duration-1000 activee "
@@ -191,7 +157,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             </NavLink>
             <NavLink
               to="/Analyse"
-              ref={linkRef}
               className={({ isActive }) =>
                 isActive
                   ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-4 relative translate-x-[25px] transition-all duration-1000 activee "
@@ -202,7 +167,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             </NavLink>
             <NavLink
               to="/Etiquetage"
-              ref={linkRef}
               className={({ isActive }) =>
                 isActive
                   ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-4 relative translate-x-[25px] transition-all duration-1000 activee "
@@ -213,7 +177,6 @@ export const SideBarComponent: React.FC<SideBarComponentProps> = ({
             </NavLink>
             <NavLink
               to="/Comptabilite"
-              ref={linkRef}
               className={({ isActive }) =>
                 isActive
                   ? "text-gray-500 flex gap-3 w-full items-center justify-between font-medium text-base mb-4 relative translate-x-[25px] transition-all duration-1000 activee "

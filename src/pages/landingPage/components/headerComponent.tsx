@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { HStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { useAuth } from "store/auth";
-import { useModalProvider } from "providers";
 import { SearchBar } from "components/custom/searchBar";
 import {
   MdOutlineDarkMode,
@@ -13,31 +11,8 @@ import {
 import { BsChevronDown, BsPower } from "react-icons/bs";
 import { PiUser } from "react-icons/pi";
 
-interface HeaderComponentProps {
-  hamburger: boolean;
-  setHamburger: React.Dispatch<React.SetStateAction<boolean>>;
-  profileInfo?: any;
-  error?: any;
-}
-
-export const HeaderComponent = ({
-  hamburger,
-  setHamburger,
-  profileInfo = {},
-  error = {},
-}: HeaderComponentProps) => {
-  const { token: access_token } = useAuth();
-  const { initModal } = useModalProvider();
+export const HeaderComponent = () => {
   const [bg, setBg] = useState("");
-
-  useEffect(() => {
-    let err: any = error;
-
-    if (access_token && err?.data?.statusCode === 403) {
-      initModal({ sessionExpired: true });
-      err = null;
-    }
-  }, [error]);
 
   const listenScrollEvent = () => {
     if (window.scrollY > 34) {

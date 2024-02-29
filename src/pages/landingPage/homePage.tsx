@@ -1,11 +1,10 @@
 /* eslint-disable no-lone-blocks */
 import { FooterComponent, HeaderComponent } from "./components";
 import { PrimaryButton } from "components/buttons";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
-  const [hamburger, setHamburger] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     navigate("/recipes");
@@ -14,7 +13,7 @@ export const HomePage = () => {
   return (
     <div style={{ paddingTop: "84px" }}>
       {/*========== HEADER =========== */}
-      <HeaderComponent hamburger={hamburger} setHamburger={setHamburger} />
+      <HeaderComponent />
       {/*========== END OF HEADER =========== */}
 
       <section>
@@ -33,23 +32,3 @@ export const HomePage = () => {
     </div>
   );
 };
-
-{
-  /* <PrimaryInput
-  // disabled={d}
-  type="email"
-  leftAddon={"http://"}
-  leftAddonProps={{
-    className: `primary-input-addon ${d ? "disabled-input" : ""}`,
-  }}
-  // error={d}
-  // leftComponent={<Icon />}
-  // leftComponentProps={{
-  //   className: "primary-input-component",
-  // }}
-  rightComponent={<BsFillCalendar2Fill />}
-  rightComponentProps={{
-    className: "primary-input-component",
-  }}
-/>; */
-}

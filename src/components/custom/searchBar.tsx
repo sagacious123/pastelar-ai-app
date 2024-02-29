@@ -4,13 +4,10 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  InputRightElement,
   VStack,
 } from "@chakra-ui/react";
 // import { Search2Icon } from "@chakra-ui/icons";
 import { ReactComponent as SearchIcon } from "assets/svg/search.svg";
-import { useAuth } from "store/auth";
-import { useGetAllCampaignsQuery } from "store/campaigns";
 import { useWindowWidth } from "utilities/windowWidth";
 
 interface SearchBarProps {
@@ -23,10 +20,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({ width, height }) => {
   const [active, setActive] = React.useState<boolean>(false);
   const [query, setQuery] = React.useState<string>("");
   const [inputWidth, setInputWidth] = React.useState<string | undefined>(width);
-  const { user } = useAuth();
-  const { data: campaigns, isLoading } = useGetAllCampaignsQuery(
-    user?.role === "exporter" ? { exporterId: user?._id } : {}
-  );
 
   useEffect(() => {
     const handleDocumentClick = () => {
@@ -54,6 +47,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ width, height }) => {
   };
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value.toLocaleLowerCase());
+    console.log(e.target.value.toLocaleLowerCase());
   };
 
   return (
@@ -67,7 +61,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ width, height }) => {
       zIndex={100}
       display={"flex"}
       justifyContent={"center"}
-      className="wrapper-box mr-3"
+      className="wrapper-box"
       style={{ borderRadius: "32px" }}
     >
       <div>
@@ -78,17 +72,18 @@ export const SearchBar: React.FC<SearchBarProps> = ({ width, height }) => {
           marginTop={active ? "16px" : "none"}
           style={{ borderRadius: "32px" }}
         >
+          {/* There seems to be a bug with chakra ui's InputLeftElement */}
           <InputLeftElement height={"100%"} pointerEvents="none">
             <SearchIcon />
           </InputLeftElement>
           <Input
             type="text"
-            // placeholder="Search"
-            border={"none"}
+            placeholder="Search"
+            border={"1px solid #7E7E7E"}
             paddingBlock={"8px"}
             paddingInline={"12px"}
             paddingLeft={"32px"}
-            height={"29px"}
+            height={"fit-content"}
             onClick={handleInputClick}
             onChange={handleInputChange}
             width={inputWidth}
@@ -96,6 +91,16 @@ export const SearchBar: React.FC<SearchBarProps> = ({ width, height }) => {
             style={{ borderRadius: "32px" }}
           />
         </InputGroup>
+        <VStack
+          width={inputWidth}
+          bg={active === true && query !== "" ? "white" : "transparent"}
+          borderBottomRadius={"16px"}
+          onClick={(e: React.SyntheticEvent) => e.stopPropagation()}
+          px={"16px"}
+          height={"auto"}
+          maxHeight={"70%"}
+          overflowY={"scroll"}
+        ></VStack>
       </div>
     </Box>
   );
